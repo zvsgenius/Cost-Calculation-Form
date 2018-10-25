@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <VBox prefHeight="412.0" prefWidth="622.0">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Расчет стоимости проживания в гостинице:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="100.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="485.0" prefWidth="699.0">
+               <children>
+                  <VBox prefHeight="400.0" prefWidth="300.0">
+                     <children>
+                        <Label text="Заезд:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <DatePicker fx:id="dp_in">
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="30.0" />
+                           </VBox.margin>
+                        </DatePicker>
+                        <Label text="Выезд:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <DatePicker fx:id="dp_out">
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="30.0" />
+                           </VBox.margin>
+                        </DatePicker>
+                        <CheckBox fx:id="chb_breakfast" mnemonicParsing="false" text="Завтрак">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="30.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="chb_safe" mnemonicParsing="false" text="Сейф">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <Label text="Тип номера:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cb_room">
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="30.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <Label text="Итого:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_total">
+                           <VBox.margin>
+                              <Insets bottom="70.0" left="30.0" right="30.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button fx:id="btn_Count" mnemonicParsing="false" text="Рассчитать стоимость">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="70.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</GridPane>
