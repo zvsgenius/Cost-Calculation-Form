@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -57,27 +59,38 @@ public class Controller implements Initializable {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             if(dp_in.getValue() != null && dp_out.getValue() != null){
-                try {
-                    Date dateIn = dateFormat.parse(dp_in.getValue().toString());
-                    Date dateOut = dateFormat.parse(dp_out.getValue().toString());
-                    long msIn = dateIn.getTime();
-                    long msOut = dateOut.getTime();
-                    if (msOut > msIn){
-                        int days = (int)((msOut - msIn) / 86400000 );
-                        double result = days * costDay;
-                        tf_total.setText(String.valueOf(result));
-                    }
-                    else {
-                        tf_total.setText("Error: incorrect dates");
-                    }
-                } catch (ParseException e1) {
+//                try {
+//                    Date dateIn = dateFormat.parse(dp_in.getValue().toString());
+//                    Date dateOut = dateFormat.parse(dp_out.getValue().toString());
+//                    long msIn = dateIn.getTime();
+//                    long msOut = dateOut.getTime();
+//                    if (msOut > msIn){
+//                        int days = (int)((msOut - msIn) / 86400000 );
+//                        double result = days * costDay;
+//                        tf_total.setText(String.valueOf(result));
+//
+//
+//                    }
+//                    else {
+//                        tf_total.setText("Error: incorrect dates");
+//                    }
+//                } catch (ParseException e1) {
+//                    tf_total.setText("Error: incorrect dates");
+//                }
+
+                LocalDate dateIn = dp_in.getValue();
+                LocalDate dateOut = dp_out.getValue();
+                Period delta = Period.between(dateIn, dateOut);
+                int days = delta.getDays();
+                if (days > 0){
+                    double result = days * costDay;
+                    tf_total.setText(String.valueOf(result));
+                }else {
                     tf_total.setText("Error: incorrect dates");
                 }
-
             }else {
                 tf_total.setText("Error: incorrect dates");
             }
-
         });
 
         ObservableList<String> list = FXCollections.observableArrayList("Стандарт", "Эконом", "Люкс");
